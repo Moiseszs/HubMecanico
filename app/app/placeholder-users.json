@@ -1,0 +1,29 @@
+{
+    "user1": {
+        "email": "user112@email.com",
+        "password": "kAs6Lvd6u35H"
+    },
+    "user2":{
+        "email": "user5832@email.com",
+        "password": "rI4I}:0~7"
+    },
+    "user3":{
+        "email":"user827@email.com",
+        "password": "CZ9za36rQuyx",
+        "type": "admin"
+    },
+    "user4":{
+        "Nome": "Geois",
+        "Sobrenome": "Ficiusei",
+        "CPF": "37854918082",
+        "Email": "geois@gmail.com",
+        "Senha": "5dP=9Uk59"
+    },
+    "user5":{
+        "Nome": "Adelmo",
+        "Sobrenome": "Rizzo",
+        "CPF": "48100849064",
+        "Email": "aldemo.riz@gmail.com",
+        "Senha": "Xh9!6Y@2:"
+    }
+}

@@ -1,0 +1,78 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.title{
+    text-align: center;
+    color: rgb(59, 59, 59);
+}
+
+.navbar{
+    display: flex;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px;
+}
+
+.item{
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 1px 1px 1px 1px rgba(151, 137, 137, 0.541);
+    width: 90%;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.item img{
+    width: 10%;
+}
+
+.details{
+    word-wrap: break-word;
+    width: 250px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item form{
+    margin-left: 100px;
+}
+
+.item button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.order-form{
+    margin-left: 45%;
+    margin-top: 80px;
+}
+
+.order-form input{
+    background-color: rgb(70, 189, 70);
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.total-value{
+    margin-left: 47%;
+    margin-top: 50px;
+}
+
+.info{
+    margin-left: 45%;
+    margin-top: 5%;
+    color: rgb(61, 60, 60);
+
+}

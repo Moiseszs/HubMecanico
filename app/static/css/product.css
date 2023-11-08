@@ -1,0 +1,70 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(59, 58, 58);
+}
+
+h4{
+    color: rgb(116, 115, 115);
+}
+
+.navbar{
+    display: flex;
+    padding: 7px;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px;
+}
+
+.display{
+    display: flex;
+    margin-top: 20px;
+}
+
+dialog{
+    border: 0px;
+    box-shadow: 1px 1px rgb(99, 91, 91);
+}
+
+dialog input[type="submit"]{
+    padding: 10px;
+    display: block;
+    margin: 20px auto ;
+    background-color: rgba(74, 192, 74, 0.87);
+    border: none;
+}
+
+.display img{
+    width: 20%; 
+    margin-right: 30px;
+    margin-top: 5px;
+    box-shadow: 2px 5px 5px 0px rgba(148,138,138,0.75);
+    -webkit-box-shadow: 2px 5px 5px 0px rgba(148,138,138,0.75);
+    -moz-box-shadow: 2px 5px 5px 0px rgba(148,138,138,0.75);
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.display span{
+    padding: 20px;
+}
+
+.description{
+    padding: 10px;
+}
+
+button{
+    display: block;
+    background-color: rgba(74, 192, 74, 0.87);
+    border: none;
+    padding: 20px;
+    margin-top: 5%;
+    width: 200px;
+    cursor: pointer;
+}
+
+.description p{
+    margin-left: 10px;
+}

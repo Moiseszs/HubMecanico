@@ -1,0 +1,15 @@
+body{
+   margin: 0;
+   font-family: 'Roboto', 'Times New Roman';
+   font-weight: 500;
+}
+
+.input-container input{
+   width: 100%;
+}
+
+form{
+   width: 50%;
+   margin: 0 auto;
+}
+

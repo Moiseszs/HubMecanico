@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubMecanico - Pagina do Produto</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'keyboard-icon.png' %}" />
+</head>
+<body>
+    {% csrf_token %}
+    <nav class="navbar">
+        <a href="/" style="text-decoration: none; color: inherit;" class="logo">
+            <span style="color: rgb(48, 197, 48)">Hub</span><span>Mecanico</span>
+        </a>
+        <div class="cart-icon">
+            <a href="/carrinho">
+                <i class="bi bi-cart" style="width: 200%"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="display">
+        <img src="http://localhost:3000/{{product.image_url}}" >
+        <div class="info">
+            <span><h4>{{product.name}}</h4></span>
+            <span><h4>R$ {{product.price}}</h4></span>
+            <button onclick="select()">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+    <div class="description">
+        <h4>Descrição</h4>
+        <p>{{product.description}}</p>
+        
+    </div>
+
+    <dialog style="width:20rem; ">
+        <a onclick="dialog.close()" style="cursor: pointer; font-size: 30px;">&times</a>
+        <div>
+            <span id="name">{{product.name}}</span>
+            <p id="price"></p>
+            <form action="/adicionar-carrinho/" method="POST">
+                {% csrf_token %}
+                <label>Quantidade: </label>
+                <input type="number" value="1" name="quantity">
+                <input type="hidden" id="id" name="product_id" value="{{product.id}}"/>
+                <input type="submit" value="Adicionar ao Carrinho">
+            </form>
+        </div>
+    </dialog>
+
+    <script>
+        function select(){
+            dialog = document.querySelector('dialog')
+            dialog.showModal()
+        }
+
+    </script>
+</body>
+</html>

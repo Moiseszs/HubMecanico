@@ -1,0 +1,70 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    background-color: rgb(250, 249, 249);
+    color: rgb(70, 69, 69);
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 190fr));
+}
+
+.product button{
+    background-color: rgba(74, 192, 74, 0.87);
+    border: none;
+    height: 50px;
+    cursor: pointer;
+}
+
+dialog{
+    border: 0px;
+    box-shadow: 1px 1px rgb(99, 91, 91);
+}
+
+
+.navbar{
+    display: flex;
+    padding: 7px;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px;
+}
+
+.navbar .cart-icon {
+    font-size: larger;
+}
+
+.cart-icon a{
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(66, 66, 66);
+}
+
+
+.product{
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.253);
+    padding: 20px 20px 20px 30px;
+    margin-bottom: 10px;
+}
+
+.product img{
+    display: block;
+    width: 80%;
+    height: 40%;
+    margin: auto;
+
+}
+
+dialog > *{
+    padding: 10px;
+}
+
+dialog input[type="submit"]{
+    padding: 10px;
+    display: block;
+    margin: 20px auto ;
+    background-color: rgba(74, 192, 74, 0.87);
+    border: none;
+    cursor: pointer;
+}

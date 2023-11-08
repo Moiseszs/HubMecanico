@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'keyboard-icon.png' %}" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" style="text-decoration: none; color: inherit;" class="logo">
+            <span style="color: rgb(9, 177, 9)">Hub</span><span>Mecanico</span>
+        </a>
+    </nav>
+
+    
+        <div class="main-container" >
+            <div class="form-container">
+                <form action="/login/" method="POST">
+                    {% csrf_token %}
+                    {% for field in form%}
+                    <div>
+                        {{field.label_tag}}
+                        {{field}}
+                    </div>
+                    {% endfor %}
+                    <input type="submit" value="Entrar"/>
+                </form>
+            </div>
+            
+            <div class="info-container">
+                <p>Bem vindo ao <span style="color: #248645">Hub</span>Mecanico</p>
+                <p>Se já tem conta, entre para<br> acessar os serviços.</p>
+                <p>Caso não tenha, <a href="/registro" style="color: #248645; text-decoration: none;">registre-se aqui</a></p>
+            </div>
+    
+        </div>
+
+        <div class="error-message">
+            {{erro}}
+        </div>
+
+</body>
+</html>

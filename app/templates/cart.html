@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="{%static 'css/cart.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'keyboard-icon.png' %}" />
+</head>
+<body>
+    {% csrf_token %}
+    <nav class="navbar">
+        <a href="/" style="text-decoration: none; color: inherit;" class="logo">
+            <span style="color: rgb(48, 197, 48)">Hub</span><span>Mecanico</span>
+        </a>
+
+    </nav>
+    <h3 class="title">Carrinho</h3>
+    {% if not items %}
+    <div class="info">
+        <h4>Não há itens ainda</h4>
+    </div>
+    
+
+    {% else %}
+        {% for item in items %}
+        <div class="item">
+            <img src="http://localhost:3000/{{item.product.image_url}}">
+            <div class="details">
+                <h4>{{item.product.name}}</h4>
+                <span>Quantidade: {{item.quantity}}</span> 
+                <h5>{{item.product.price}}</h5>
+
+        </div>
+            
+            <form action="/remover-item/" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="item_id" value="{{item.id}}"/>
+                <button type="submit"><i class="bi bi-trash3"></i></button>
+            </form>
+        </div>
+            
+            
+        {% endfor %}
+
+        <div class="total-value">
+            <span>Total:</span> {{totalValue}}
+        </div>
+
+        <form action="/nova-compra/" method="POST" class="order-form">
+            {% csrf_token %}
+            <input type="submit" value="Realizar Compra">
+        </form>
+    {% endif %}
+
+
+</body>
+</html>

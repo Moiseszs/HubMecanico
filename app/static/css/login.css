@@ -1,0 +1,93 @@
+body{
+
+    font-family: 'Roboto', 'Times New Roman';
+    font-weight: 500;
+    color: rgb(70, 69, 69);
+    background-color: rgb(254, 254, 250);
+ }
+ 
+ .input-container input{
+    width: 100%;
+    padding: 2px;
+    border: 2px unset rgb(204, 14, 14);
+    height: 23px;
+ }
+
+ .input-container li{
+   font-size: 95%;
+ }
+
+ .input-container div{
+   font-size: 95%;
+ }
+
+ .input-container input:focus{
+   outline: none;
+ }
+
+ .input-container{
+    padding: 5px;
+ }
+ 
+.btn{
+   left: 50%;
+}
+
+ form{
+    width: 50%;
+    margin: 0 auto;
+ }
+
+ .title{
+    text-align: center;
+    align-items: center;
+ }
+
+ .main-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30vh;
+ }
+
+ .form-container{
+    background-color: #F8FFF9;
+    justify-content: center;
+    height: 250px;
+    width: 300px;
+    padding: 10px 20px 20px;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: center;
+ }
+
+ .form-container input{
+    
+ }
+
+ form input{
+    width: 150%;
+    height: 20px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    background-color: #F8FFF9;
+    border: 1px solid rgb(167, 164, 164);
+ }
+
+ form > input[type="submit"]{
+    width: 130px;
+    height: 30px;
+    margin-left: 40%;
+    cursor: pointer;
+    background-color: rgba(55, 183 , 114, 0.53);
+ }
+
+ .info-container{
+    background-color: white;
+    padding: 10px 10px 0px 10px;
+ }
+
+ .error-message{
+    text-align: center;
+    color: rgb(197, 92, 92);
+    padding: 20px;
+ }

@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="{% static 'css/new_order.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'keyboard-icon.png' %}" />
+    <title>Página de Nova Compra</title>
+</head>
+<body>
+    {% csrf_token %}
+
+    <nav class="navbar">
+        <a href="/" style="text-decoration: none; color: inherit;" class="logo">
+            <span style="color: rgb(48, 197, 48)">Hub</span><span>Mecanico</span>
+        </a>
+
+    </nav>
+
+
+    <h4 class="title">Informações da Compra</h4>
+
+    <div class="items">
+        <h4>Itens: </h4>
+        {% for item in items %}
+            <div class="item">
+                <span>{{item.product.first_name}}</span>
+                <span>Quantidade: {{item.quantity}}</span>
+                <span>Preço: {{item.product.price}}</span>
+            </div>
+            
+        {% endfor %}
+
+       
+    </div>
+
+    <span class="total-value">Valor Total: R$ {{order.totalValue}}</span>
+    <div>
+        <span>Cliente: {{order.user.first_name}} {{order.user.last_name}} </span>
+    </div>
+    
+    
+    <form action="/checkout/" method="POST" onsubmit="setTimeout(function(){window.location.href='/'}, 10)" target="_blank">
+        {% csrf_token %}
+
+        <input type="hidden" name="order_id" value="{{order.id}}" >
+
+        <div class="address-form">
+            <h4>Endereço</h4>
+
+            <label>CEP</label>
+            <input name="postal_code" type="text">
+            <label>Numero</label>
+            <input type="number" name="number">
+            <label>Complemento</label>
+            <input type="text" name="complement">
+        </div>
+
+        <div class="payment">
+            <h4>Pagamento</h4>
+            <div class="options">
+                <div class="credit">
+                    <input class="option" id="credit-option" type="radio" name="method" value="credit" onclick="showForm(this)" >
+                    <label for="credit-option" class="option-label" id="credit-label">Cartão de Crédito</label>
+                </div>
+    
+                <div class="boleto">
+                    <input type="radio" class="option" id="boleto-option" name="method" value="boleto" onclick="showForm(this)">
+                    <label for="boleto-option" id="boleto-label" class="option-label">Boleto</label>
+                </div>
+    
+                <div class="paypal">
+                    <input type="radio" class="option" id="paypal-option" name="method" value="paypal" onclick="showForm(this)">
+                    <label for="paypal-option" id="paypal-label" class="option-label">PayPal</label>
+                </div>
+    
+            </div>
+            
+
+
+            <div id="credit-form" hidden>
+                <div class="number-container">
+                    <label for="credit-input">Numero</label>
+                    <input type="text"  id="credit-input" required>
+                </div>
+                <div class="cvv-container">
+                    <label for="input-cvv">CVV</label>
+                    <input type="text" id="credit-input-cvv" maxlength="3" disabled required>
+                </div>
+            </div>
+
+            <div hidden id="paypal-form">
+                <label for="">Token</label>
+                <input type="text" id="paypal-input" required>
+            </div>
+        </div>
+
+        <input type="submit" class="order-btn" value="Finalizar Compra" >
+    </form>
+   
+    <script >
+        function showForm(option){
+            name = option.value
+            switch(name){
+                case 'credit':
+                    $('#'+name+'-form').show()
+                    $('#'+name+'-form').css('display', 'flex')
+                    $("#paypal-form").hide()
+                    $('#paypal-input').prop('disabled', true)
+                    $('#credit-input').prop('disabled', false)
+                    $('#credit-input-cvv').prop('disabled', false)
+                    break;
+                case 'boleto':
+                    $("#credit-form").hide()
+                    $("#paypal-form").hide()
+                    $('#credit-input').prop('disabled', true)
+                    $('#credit-input-cvv').prop('disabled', true)
+                    $('#paypal-input').prop('disabled', true)
+                    $('form').prop('target', '_blank')
+                    break;
+                case 'paypal':
+                    $('#'+name+'-form').show()
+                    $("#credit-form").hide()
+                    $('#credit-input').prop('disabled', true)
+                    $('#credit-input-cvv').prop('disabled', true)
+                    $('#paypal-input').prop('disabled', false)
+                    break;
+                default:
+                    $("#credit-form").hide()
+                    $("#paypal-form").hide()
+            }
+            
+            
+        }
+
+    </script>
+
+
+</body>
+</html>
