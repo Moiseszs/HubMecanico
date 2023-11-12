@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'HubMecanicoDB',
-        'USER': 'db_user',
-        'PASSWORD': 'pass',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST' : '127.0.0.1',
         'PORT': '5432'
     }
@@ -128,7 +128,7 @@ STATICFILES_DIRS = [
     'static/'
 ]
 
-MEDIA_ROOT = 'C://Users/moise/Pictures/media/'
+MEDIA_ROOT = ''
 
 MEDIA_URL = 'http://localhost:3000/'
 
