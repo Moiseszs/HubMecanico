@@ -1,5 +1,5 @@
 # HubMecanico
-Projeto feito em Python e Django 🌳🥦
+Projeto feito em Python e Django 🌳
 
 Para rodar o projeto, é necessário:
 
